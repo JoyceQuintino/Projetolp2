@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="ModelagemLais.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="ModelagemLaisTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelagemLais" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelagemLaisContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CriancaSet" EntityType="ModelagemLais.Crianca" />
+          <EntitySet Name="MaeSet" EntityType="ModelagemLais.Mae" />
+          <AssociationSet Name="MaeCrianca" Association="ModelagemLais.MaeCrianca">
+            <End Role="Mae" EntitySet="MaeSet" />
+            <End Role="Crianca" EntitySet="CriancaSet" />
+          </AssociationSet>
+          <EntitySet Name="ConsultaSet" EntityType="ModelagemLais.Consulta" />
+          <EntitySet Name="PartoSet" EntityType="ModelagemLais.Parto" />
+          <AssociationSet Name="MaeParto" Association="ModelagemLais.MaeParto">
+            <End Role="Mae" EntitySet="MaeSet" />
+            <End Role="Parto" EntitySet="PartoSet" />
+          </AssociationSet>
+          <EntitySet Name="MaeConsultaSet" EntityType="ModelagemLais.MaeConsulta" />
+          <AssociationSet Name="MaeMaeConsulta" Association="ModelagemLais.MaeMaeConsulta">
+            <End Role="Mae" EntitySet="MaeSet" />
+            <End Role="MaeConsulta" EntitySet="MaeConsultaSet" />
+          </AssociationSet>
+          <AssociationSet Name="MaeConsultaConsulta" Association="ModelagemLais.MaeConsultaConsulta">
+            <End Role="MaeConsulta" EntitySet="MaeConsultaSet" />
+            <End Role="Consulta" EntitySet="ConsultaSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Crianca">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Peso" Type="String" Nullable="false" />
+          <Property Name="Sexo" Type="String" Nullable="false" />
+          <NavigationProperty Name="Mae" Relationship="ModelagemLais.MaeCrianca" FromRole="Crianca" ToRole="Mae" />
+          <Property Name="IdMae" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mae">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Idade" Type="String" Nullable="false" />
+          <Property Name="QuantFilhosVivos" Type="String" Nullable="false" />
+          <Property Name="QuantFilhosMortos" Type="String" Nullable="false" />
+          <Property Name="Escolaridade" Type="String" Nullable="false" />
+          <Property Name="EstadoCivil" Type="String" Nullable="false" />
+          <NavigationProperty Name="Crianca" Relationship="ModelagemLais.MaeCrianca" FromRole="Mae" ToRole="Crianca" />
+          <NavigationProperty Name="Parto" Relationship="ModelagemLais.MaeParto" FromRole="Mae" ToRole="Parto" />
+          <NavigationProperty Name="MaeConsulta" Relationship="ModelagemLais.MaeMaeConsulta" FromRole="Mae" ToRole="MaeConsulta" />
+        </EntityType>
+        <Association Name="MaeCrianca">
+          <End Type="ModelagemLais.Mae" Role="Mae" Multiplicity="1" />
+          <End Type="ModelagemLais.Crianca" Role="Crianca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mae">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Crianca">
+              <PropertyRef Name="IdMae" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Consulta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gravidez" Type="String" Nullable="false" />
+          <Property Name="TempoGestacao" Type="String" Nullable="false" />
+          <Property Name="TipoParto" Type="String" Nullable="false" />
+          <NavigationProperty Name="MaeConsulta" Relationship="ModelagemLais.MaeConsultaConsulta" FromRole="Consulta" ToRole="MaeConsulta" />
+        </EntityType>
+        <EntityType Name="Parto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocalNasci" Type="String" Nullable="false" />
+          <Property Name="Horario" Type="String" Nullable="false" />
+          <NavigationProperty Name="Mae" Relationship="ModelagemLais.MaeParto" FromRole="Parto" ToRole="Mae" />
+          <Property Name="IdMae" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="MaeParto">
+          <End Type="ModelagemLais.Mae" Role="Mae" Multiplicity="1" />
+          <End Type="ModelagemLais.Parto" Role="Parto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mae">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Parto">
+              <PropertyRef Name="IdMae" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MaeConsulta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMae" Type="String" Nullable="false" />
+          <Property Name="IdConsulta" Type="String" Nullable="false" />
+          <NavigationProperty Name="Mae" Relationship="ModelagemLais.MaeMaeConsulta" FromRole="MaeConsulta" ToRole="Mae" />
+          <NavigationProperty Name="Consulta" Relationship="ModelagemLais.MaeConsultaConsulta" FromRole="MaeConsulta" ToRole="Consulta" />
+        </EntityType>
+        <Association Name="MaeMaeConsulta">
+          <End Type="ModelagemLais.Mae" Role="Mae" Multiplicity="*" />
+          <End Type="ModelagemLais.MaeConsulta" Role="MaeConsulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mae">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaeConsulta">
+              <PropertyRef Name="IdMae" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MaeConsultaConsulta">
+          <End Type="ModelagemLais.MaeConsulta" Role="MaeConsulta" Multiplicity="*" />
+          <End Type="ModelagemLais.Consulta" Role="Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consulta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaeConsulta">
+              <PropertyRef Name="IdConsulta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="ModelagemLais" />
+        <Alias Key="Target" Value="ModelagemLais.Store" />
+        <EntityContainerMapping CdmEntityContainer="ModelagemLaisContainer" StorageEntityContainer="ModelagemLaisTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

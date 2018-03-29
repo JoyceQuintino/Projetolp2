@@ -10,5 +10,5 @@ Apgar2,
 ConsultaPreNatal, 
 MãeConcultaPreNatal, 
 ConsultaRecemNascido, 
-CriancaConsultaRecemNascido e 
+CriancaConsultaRecemNascido e
 Usuário. 

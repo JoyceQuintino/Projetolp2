@@ -1,0 +1,7 @@
+C:\Users\bolsista\Documents\Joyce\Projetolp2\RedeCegonha\RedeCegonha\bin\Debug\RedeCegonha.dll.config
+C:\Users\bolsista\Documents\Joyce\Projetolp2\RedeCegonha\RedeCegonha\bin\Debug\RedeCegonha.dll
+C:\Users\bolsista\Documents\Joyce\Projetolp2\RedeCegonha\RedeCegonha\bin\Debug\RedeCegonha.pdb
+C:\Users\bolsista\Documents\Joyce\Projetolp2\RedeCegonha\RedeCegonha\obj\Debug\RedeCegonha.csprojResolveAssemblyReference.cache
+C:\Users\bolsista\Documents\Joyce\Projetolp2\RedeCegonha\RedeCegonha\obj\Debug\RedeCegonha.csproj.CoreCompileInputs.cache
+C:\Users\bolsista\Documents\Joyce\Projetolp2\RedeCegonha\RedeCegonha\obj\Debug\RedeCegonha.dll
+C:\Users\bolsista\Documents\Joyce\Projetolp2\RedeCegonha\RedeCegonha\obj\Debug\RedeCegonha.pdb

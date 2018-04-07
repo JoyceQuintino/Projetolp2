@@ -5,15 +5,33 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="89a7dea67fbb49628ed4722588fd633b" Name="Diagram1" >
-        <EntityTypeShape EntityType="ModelagemLais.Crianca" Width="1.5" PointX="0.875" PointY="0.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="ModelagemLais.Mae" Width="1.5" PointX="3.25" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="ModelagemLais.Crianca" Width="1.5" PointX="0.5" PointY="1.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="ModelagemLais.Mae" Width="1.5" PointX="3.875" PointY="1.5" IsExpanded="false" />
         <AssociationConnector Association="ModelagemLais.MaeCrianca" />
-        <EntityTypeShape EntityType="ModelagemLais.Consulta" Width="1.5" PointX="0.875" PointY="1.875" IsExpanded="false" />
-        <EntityTypeShape EntityType="ModelagemLais.Parto" Width="1.5" PointX="5.5" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="ModelagemLais.Parto" Width="1.5" PointX="7.125" PointY="0.5" IsExpanded="false" />
         <AssociationConnector Association="ModelagemLais.MaeParto" />
-        <EntityTypeShape EntityType="ModelagemLais.MaeConsulta" Width="1.5" PointX="3.25" PointY="1.875" IsExpanded="false" />
-        <AssociationConnector Association="ModelagemLais.MaeMaeConsulta" />
-        <AssociationConnector Association="ModelagemLais.MaeConsultaConsulta" />
+        <EntityTypeShape EntityType="ModelagemLais.MaeConsultaPreNatal" Width="1.5" PointX="4" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="ModelagemLais.Medico" Width="1.5" PointX="5.5" PointY="4.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="ModelagemLais.Apgar1" Width="1.5" PointX="2.5" PointY="3.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="ModelagemLais.Apgar5" Width="1.5" PointX="0.625" PointY="4.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="ModelagemLais.Usuario" Width="1.5" PointX="8.5" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="ModelagemLais.ConsultaPreNatal" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="ModelagemLais.ExamesRecemNascido" Width="1.5" PointX="3.875" PointY="2.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="ModelagemLais.ExamesMae" Width="1.5" PointX="6.75" PointY="2.125" IsExpanded="false" />
+        <AssociationConnector Association="ModelagemLais.ExamesMaeMae" />
+        <AssociationConnector Association="ModelagemLais.ExamesMaeMedico" />
+        <AssociationConnector Association="ModelagemLais.ExamesRecemNascidoCrianca" />
+        <AssociationConnector Association="ModelagemLais.MedicoExamesRecemNascido" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="ModelagemLais.UsuarioMedico" />
+        <AssociationConnector Association="ModelagemLais.MedicoApgar1" />
+        <AssociationConnector Association="ModelagemLais.MedicoApgar5" />
+        <AssociationConnector Association="ModelagemLais.Apgar1Crianca" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="ModelagemLais.Apgar5Crianca" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="ModelagemLais.MaeConsultaPreNatalConsultaPreNatal" />
+        <AssociationConnector Association="ModelagemLais.MaeMaeConsultaPreNatal" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

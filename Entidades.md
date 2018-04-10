@@ -9,6 +9,9 @@ Apgar1,
 Apgar2, 
 ConsultaPreNatal, 
 MãeConcultaPreNatal, 
-ConsultaRecemNascido, 
-CriancaConsultaRecemNascido e
+ExamesMae,
+ExamesRecemNascido e
 Usuário. 
+
+links importantes para o domínio:
+http://revistacrescer.globo.com/Revista/Crescer/0,,EMI3348-15591,00.html

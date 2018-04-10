@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelagemLais" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ModelagemLaisContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CriancaSet" EntityType="ModelagemLais.Crianca" />
+    <EntitySet Name="MaeSet" EntityType="ModelagemLais.Mae" />
+    <AssociationSet Name="MaeCrianca" Association="ModelagemLais.MaeCrianca">
+      <End Role="Mae" EntitySet="MaeSet" />
+      <End Role="Crianca" EntitySet="CriancaSet" />
+    </AssociationSet>
+    <EntitySet Name="PartoSet" EntityType="ModelagemLais.Parto" />
+    <AssociationSet Name="MaeParto" Association="ModelagemLais.MaeParto">
+      <End Role="Mae" EntitySet="MaeSet" />
+      <End Role="Parto" EntitySet="PartoSet" />
+    </AssociationSet>
+    <EntitySet Name="MaeConsultaPreNatalSet" EntityType="ModelagemLais.MaeConsultaPreNatal" />
+    <EntitySet Name="MedicoSet" EntityType="ModelagemLais.Medico" />
+    <EntitySet Name="Apgar1Set" EntityType="ModelagemLais.Apgar1" />
+    <EntitySet Name="Apgar5Set" EntityType="ModelagemLais.Apgar5" />
+    <EntitySet Name="UsuarioSet" EntityType="ModelagemLais.Usuario" />
+    <EntitySet Name="ConsultaPreNatalSet" EntityType="ModelagemLais.ConsultaPreNatal" />
+    <EntitySet Name="ExamesRecemNascidoSet" EntityType="ModelagemLais.ExamesRecemNascido" />
+    <EntitySet Name="ExamesMaeSet" EntityType="ModelagemLais.ExamesMae" />
+    <AssociationSet Name="ExamesMaeMae" Association="ModelagemLais.ExamesMaeMae">
+      <End Role="ExamesMae" EntitySet="ExamesMaeSet" />
+      <End Role="Mae" EntitySet="MaeSet" />
+    </AssociationSet>
+    <AssociationSet Name="ExamesMaeMedico" Association="ModelagemLais.ExamesMaeMedico">
+      <End Role="ExamesMae" EntitySet="ExamesMaeSet" />
+      <End Role="Medico" EntitySet="MedicoSet" />
+    </AssociationSet>
+    <AssociationSet Name="ExamesRecemNascidoCrianca" Association="ModelagemLais.ExamesRecemNascidoCrianca">
+      <End Role="ExamesRecemNascido" EntitySet="ExamesRecemNascidoSet" />
+      <End Role="Crianca" EntitySet="CriancaSet" />
+    </AssociationSet>
+    <AssociationSet Name="MedicoExamesRecemNascido" Association="ModelagemLais.MedicoExamesRecemNascido">
+      <End Role="Medico" EntitySet="MedicoSet" />
+      <End Role="ExamesRecemNascido" EntitySet="ExamesRecemNascidoSet" />
+    </AssociationSet>
+    <AssociationSet Name="UsuarioMedico" Association="ModelagemLais.UsuarioMedico">
+      <End Role="Usuario" EntitySet="UsuarioSet" />
+      <End Role="Medico" EntitySet="MedicoSet" />
+    </AssociationSet>
+    <AssociationSet Name="MedicoApgar1" Association="ModelagemLais.MedicoApgar1">
+      <End Role="Medico" EntitySet="MedicoSet" />
+      <End Role="Apgar1" EntitySet="Apgar1Set" />
+    </AssociationSet>
+    <AssociationSet Name="MedicoApgar5" Association="ModelagemLais.MedicoApgar5">
+      <End Role="Medico" EntitySet="MedicoSet" />
+      <End Role="Apgar5" EntitySet="Apgar5Set" />
+    </AssociationSet>
+    <AssociationSet Name="MaeConsultaPreNatalConsultaPreNatal" Association="ModelagemLais.MaeConsultaPreNatalConsultaPreNatal">
+      <End Role="MaeConsultaPreNatal" EntitySet="MaeConsultaPreNatalSet" />
+      <End Role="ConsultaPreNatal" EntitySet="ConsultaPreNatalSet" />
+    </AssociationSet>
+    <AssociationSet Name="MaeMaeConsultaPreNatal" Association="ModelagemLais.MaeMaeConsultaPreNatal">
+      <End Role="Mae" EntitySet="MaeSet" />
+      <End Role="MaeConsultaPreNatal" EntitySet="MaeConsultaPreNatalSet" />
+    </AssociationSet>
+    <AssociationSet Name="CriancaApgar5" Association="ModelagemLais.CriancaApgar5">
+      <End Role="Crianca" EntitySet="CriancaSet" />
+      <End Role="Apgar5" EntitySet="Apgar5Set" />
+    </AssociationSet>
+    <AssociationSet Name="CriancaApgar1" Association="ModelagemLais.CriancaApgar1">
+      <End Role="Crianca" EntitySet="CriancaSet" />
+      <End Role="Apgar1" EntitySet="Apgar1Set" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Crianca">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Declaracao" Type="Int32" Nullable="false" />
+    <Property Name="Peso" Type="Decimal" Nullable="false" />
+    <Property Name="Sexo" Type="String" Nullable="false" />
+    <NavigationProperty Name="Mae" Relationship="ModelagemLais.MaeCrianca" FromRole="Crianca" ToRole="Mae" />
+    <Property Name="IdMae" Type="Int32" Nullable="false" />
+    <Property Name="Apgar2" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ExamesRecemNascido" Relationship="ModelagemLais.ExamesRecemNascidoCrianca" FromRole="Crianca" ToRole="ExamesRecemNascido" />
+    <Property Name="IdApgar1" Type="Int32" Nullable="false" />
+    <Property Name="Apgar5Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Apgar5" Relationship="ModelagemLais.CriancaApgar5" FromRole="Crianca" ToRole="Apgar5" />
+    <NavigationProperty Name="Apgar1" Relationship="ModelagemLais.CriancaApgar1" FromRole="Crianca" ToRole="Apgar1" />
+  </EntityType>
+  <EntityType Name="Mae">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" />
+    <Property Name="Idade" Type="Int32" Nullable="false" />
+    <Property Name="QuantFilhosVivos" Type="Int32" Nullable="false" />
+    <Property Name="QuantFilhosMortos" Type="Int32" Nullable="false" />
+    <Property Name="Escolaridade" Type="String" Nullable="false" />
+    <Property Name="EstadoCivil" Type="String" Nullable="false" />
+    <NavigationProperty Name="Crianca" Relationship="ModelagemLais.MaeCrianca" FromRole="Mae" ToRole="Crianca" />
+    <NavigationProperty Name="Parto" Relationship="ModelagemLais.MaeParto" FromRole="Mae" ToRole="Parto" />
+    <Property Name="Cpf" Type="String" Nullable="false" />
+    <Property Name="Rua" Type="String" Nullable="false" />
+    <Property Name="Cidade" Type="String" Nullable="false" />
+    <Property Name="Telefone" Type="String" Nullable="false" />
+    <NavigationProperty Name="ExamesMae" Relationship="ModelagemLais.ExamesMaeMae" FromRole="Mae" ToRole="ExamesMae" />
+    <NavigationProperty Name="MaeConsultaPreNatal" Relationship="ModelagemLais.MaeMaeConsultaPreNatal" FromRole="Mae" ToRole="MaeConsultaPreNatal" />
+  </EntityType>
+  <Association Name="MaeCrianca">
+    <End Type="ModelagemLais.Mae" Role="Mae" Multiplicity="1" />
+    <End Type="ModelagemLais.Crianca" Role="Crianca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mae">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Crianca">
+        <PropertyRef Name="IdMae" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Parto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocalNasci" Type="String" Nullable="false" />
+    <Property Name="Horario" Type="String" Nullable="false" />
+    <NavigationProperty Name="Mae" Relationship="ModelagemLais.MaeParto" FromRole="Parto" ToRole="Mae" />
+    <Property Name="IdMae" Type="Int32" Nullable="false" />
+    <Property Name="DataParto" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <Association Name="MaeParto">
+    <End Type="ModelagemLais.Mae" Role="Mae" Multiplicity="1" />
+    <End Type="ModelagemLais.Parto" Role="Parto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mae">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parto">
+        <PropertyRef Name="IdMae" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MaeConsultaPreNatal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMae" Type="Int32" Nullable="false" />
+    <Property Name="IdConsultaPreNatal" Type="Int32" Nullable="false" />
+    <Property Name="ConsultaPreNatalId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ConsultaPreNatal" Relationship="ModelagemLais.MaeConsultaPreNatalConsultaPreNatal" FromRole="MaeConsultaPreNatal" ToRole="ConsultaPreNatal" />
+    <NavigationProperty Name="Mae" Relationship="ModelagemLais.MaeMaeConsultaPreNatal" FromRole="MaeConsultaPreNatal" ToRole="Mae" />
+  </EntityType>
+  <EntityType Name="Medico">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" />
+    <Property Name="Telefone" Type="String" Nullable="false" />
+    <Property Name="CRM" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ExamesMae" Relationship="ModelagemLais.ExamesMaeMedico" FromRole="Medico" ToRole="ExamesMae" />
+    <NavigationProperty Name="ExamesRecemNascido" Relationship="ModelagemLais.MedicoExamesRecemNascido" FromRole="Medico" ToRole="ExamesRecemNascido" />
+    <NavigationProperty Name="Usuario" Relationship="ModelagemLais.UsuarioMedico" FromRole="Medico" ToRole="Usuario" />
+    <NavigationProperty Name="Apgar1" Relationship="ModelagemLais.MedicoApgar1" FromRole="Medico" ToRole="Apgar1" />
+    <NavigationProperty Name="Apgar5" Relationship="ModelagemLais.MedicoApgar5" FromRole="Medico" ToRole="Apgar5" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Apgar1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FrequenciaCardaca" Type="Int32" Nullable="false" />
+    <Property Name="Respiracao" Type="Int32" Nullable="false" />
+    <Property Name="TonusMuscular" Type="Int32" Nullable="false" />
+    <Property Name="Reflexos" Type="Int32" Nullable="false" />
+    <Property Name="CorDaPele" Type="String" Nullable="false" />
+    <NavigationProperty Name="Medico" Relationship="ModelagemLais.MedicoApgar1" FromRole="Apgar1" ToRole="Medico" />
+    <Property Name="IdMedico" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Crianca" Relationship="ModelagemLais.CriancaApgar1" FromRole="Apgar1" ToRole="Crianca" />
+  </EntityType>
+  <EntityType Name="Apgar5">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FrequenciaCardiaca" Type="Int32" Nullable="false" />
+    <Property Name="Respiracao" Type="Int32" Nullable="false" />
+    <Property Name="TonusMuscular" Type="Int32" Nullable="false" />
+    <Property Name="Reflexos" Type="Int32" Nullable="false" />
+    <Property Name="CorDaPele" Type="String" Nullable="false" />
+    <NavigationProperty Name="Medico" Relationship="ModelagemLais.MedicoApgar5" FromRole="Apgar5" ToRole="Medico" />
+    <Property Name="IdMedico" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Crianca" Relationship="ModelagemLais.CriancaApgar5" FromRole="Apgar5" ToRole="Crianca" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" Nullable="false" />
+    <Property Name="Senha" Type="String" Nullable="false" />
+    <NavigationProperty Name="Medico" Relationship="ModelagemLais.UsuarioMedico" FromRole="Usuario" ToRole="Medico" />
+  </EntityType>
+  <EntityType Name="ConsultaPreNatal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumeroDeConsultas" Type="Int32" Nullable="false" />
+    <Property Name="EstadoNutricional" Type="String" Nullable="false" />
+    <Property Name="TipoParto" Type="String" Nullable="false" />
+    <Property Name="PressaoArterial" Type="Decimal" Nullable="false" />
+    <Property Name="MovitacaoFetal" Type="String" Nullable="false" />
+    <Property Name="DataConsulta" Type="DateTime" Nullable="false" />
+    <Property Name="AlturaUterina" Type="Decimal" Nullable="false" />
+    <Property Name="BatimentoCadiacoFetal" Type="Decimal" Nullable="false" />
+    <Property Name="UsuariaDrogas" Type="String" Nullable="false" />
+    <Property Name="Fumante" Type="String" Nullable="false" />
+    <Property Name="UsuariaAlcool" Type="String" Nullable="false" />
+    <Property Name="Diabetes" Type="String" Nullable="false" />
+    <Property Name="Obsidade" Type="String" Nullable="false" />
+    <Property Name="TempoGestacao" Type="String" Nullable="false" />
+    <Property Name="Gravidez" Type="String" Nullable="false" />
+    <Property Name="HoraConsulta" Type="String" Nullable="false" />
+    <NavigationProperty Name="MaeConsultaPreNatal" Relationship="ModelagemLais.MaeConsultaPreNatalConsultaPreNatal" FromRole="ConsultaPreNatal" ToRole="MaeConsultaPreNatal" />
+  </EntityType>
+  <EntityType Name="ExamesRecemNascido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TesteDoPesinho" Type="String" Nullable="false" />
+    <Property Name="TipagemSanguinea" Type="String" Nullable="false" />
+    <Property Name="TesteDaOrelhinha" Type="String" Nullable="false" />
+    <Property Name="ReflexoVermelho" Type="String" Nullable="false" />
+    <NavigationProperty Name="Crianca" Relationship="ModelagemLais.ExamesRecemNascidoCrianca" FromRole="ExamesRecemNascido" ToRole="Crianca" />
+    <NavigationProperty Name="Medico" Relationship="ModelagemLais.MedicoExamesRecemNascido" FromRole="ExamesRecemNascido" ToRole="Medico" />
+    <Property Name="IdCrianca" Type="Int32" Nullable="false" />
+    <Property Name="IdMedico" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExamesMae">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Glicemia" Type="String" Nullable="false" />
+    <Property Name="SorologiaEpatiteB" Type="String" Nullable="false" />
+    <Property Name="HIV" Type="String" Nullable="false" />
+    <Property Name="UrinaTipo1" Type="String" Nullable="false" />
+    <Property Name="IdMae" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Mae" Relationship="ModelagemLais.ExamesMaeMae" FromRole="ExamesMae" ToRole="Mae" />
+    <NavigationProperty Name="Medico" Relationship="ModelagemLais.ExamesMaeMedico" FromRole="ExamesMae" ToRole="Medico" />
+    <Property Name="IdMedico" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="ExamesMaeMae">
+    <End Type="ModelagemLais.ExamesMae" Role="ExamesMae" Multiplicity="*" />
+    <End Type="ModelagemLais.Mae" Role="Mae" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Mae">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExamesMae">
+        <PropertyRef Name="IdMae" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ExamesMaeMedico">
+    <End Type="ModelagemLais.ExamesMae" Role="ExamesMae" Multiplicity="*" />
+    <End Type="ModelagemLais.Medico" Role="Medico" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExamesMae">
+        <PropertyRef Name="IdMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ExamesRecemNascidoCrianca">
+    <End Type="ModelagemLais.ExamesRecemNascido" Role="ExamesRecemNascido" Multiplicity="*" />
+    <End Type="ModelagemLais.Crianca" Role="Crianca" Multiplicity="1" />
+  </Association>
+  <Association Name="MedicoExamesRecemNascido">
+    <End Type="ModelagemLais.Medico" Role="Medico" Multiplicity="1" />
+    <End Type="ModelagemLais.ExamesRecemNascido" Role="ExamesRecemNascido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExamesRecemNascido">
+        <PropertyRef Name="IdMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsuarioMedico">
+    <End Type="ModelagemLais.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="ModelagemLais.Medico" Role="Medico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Medico">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MedicoApgar1">
+    <End Type="ModelagemLais.Medico" Role="Medico" Multiplicity="1" />
+    <End Type="ModelagemLais.Apgar1" Role="Apgar1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Apgar1">
+        <PropertyRef Name="IdMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MedicoApgar5">
+    <End Type="ModelagemLais.Medico" Role="Medico" Multiplicity="1" />
+    <End Type="ModelagemLais.Apgar5" Role="Apgar5" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Apgar5">
+        <PropertyRef Name="IdMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MaeConsultaPreNatalConsultaPreNatal">
+    <End Type="ModelagemLais.MaeConsultaPreNatal" Role="MaeConsultaPreNatal" Multiplicity="*" />
+    <End Type="ModelagemLais.ConsultaPreNatal" Role="ConsultaPreNatal" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ConsultaPreNatal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MaeConsultaPreNatal">
+        <PropertyRef Name="IdConsultaPreNatal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MaeMaeConsultaPreNatal">
+    <End Type="ModelagemLais.Mae" Role="Mae" Multiplicity="1" />
+    <End Type="ModelagemLais.MaeConsultaPreNatal" Role="MaeConsultaPreNatal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mae">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MaeConsultaPreNatal">
+        <PropertyRef Name="IdMae" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CriancaApgar5">
+    <End Type="ModelagemLais.Crianca" Role="Crianca" Multiplicity="1" />
+    <End Type="ModelagemLais.Apgar5" Role="Apgar5" Multiplicity="1" />
+  </Association>
+  <Association Name="CriancaApgar1">
+    <End Type="ModelagemLais.Crianca" Role="Crianca" Multiplicity="1" />
+    <End Type="ModelagemLais.Apgar1" Role="Apgar1" Multiplicity="1" />
+  </Association>
+</Schema>

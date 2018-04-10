@@ -60,14 +60,6 @@
             <End Role="Medico" EntitySet="MedicoSet" />
             <End Role="Apgar5" EntitySet="Apgar5Set" />
           </AssociationSet>
-          <AssociationSet Name="Apgar1Crianca" Association="ModelagemLais.Apgar1Crianca">
-            <End Role="Apgar1" EntitySet="Apgar1Set" />
-            <End Role="Crianca" EntitySet="CriancaSet" />
-          </AssociationSet>
-          <AssociationSet Name="Apgar5Crianca" Association="ModelagemLais.Apgar5Crianca">
-            <End Role="Apgar5" EntitySet="Apgar5Set" />
-            <End Role="Crianca" EntitySet="CriancaSet" />
-          </AssociationSet>
           <AssociationSet Name="MaeConsultaPreNatalConsultaPreNatal" Association="ModelagemLais.MaeConsultaPreNatalConsultaPreNatal">
             <End Role="MaeConsultaPreNatal" EntitySet="MaeConsultaPreNatalSet" />
             <End Role="ConsultaPreNatal" EntitySet="ConsultaPreNatalSet" />
@@ -75,6 +67,14 @@
           <AssociationSet Name="MaeMaeConsultaPreNatal" Association="ModelagemLais.MaeMaeConsultaPreNatal">
             <End Role="Mae" EntitySet="MaeSet" />
             <End Role="MaeConsultaPreNatal" EntitySet="MaeConsultaPreNatalSet" />
+          </AssociationSet>
+          <AssociationSet Name="CriancaApgar5" Association="ModelagemLais.CriancaApgar5">
+            <End Role="Crianca" EntitySet="CriancaSet" />
+            <End Role="Apgar5" EntitySet="Apgar5Set" />
+          </AssociationSet>
+          <AssociationSet Name="CriancaApgar1" Association="ModelagemLais.CriancaApgar1">
+            <End Role="Crianca" EntitySet="CriancaSet" />
+            <End Role="Apgar1" EntitySet="Apgar1Set" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Crianca">
@@ -87,13 +87,12 @@
           <Property Name="Sexo" Type="String" Nullable="false" />
           <NavigationProperty Name="Mae" Relationship="ModelagemLais.MaeCrianca" FromRole="Crianca" ToRole="Mae" />
           <Property Name="IdMae" Type="Int32" Nullable="false" />
-          <Property Name="Apgar1" Type="Int32" Nullable="false" />
           <Property Name="Apgar2" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ExamesRecemNascido" Relationship="ModelagemLais.ExamesRecemNascidoCrianca" FromRole="Crianca" ToRole="ExamesRecemNascido" />
-          <NavigationProperty Name="Apgar11" Relationship="ModelagemLais.Apgar1Crianca" FromRole="Crianca" ToRole="Apgar1" />
-          <NavigationProperty Name="Apgar5" Relationship="ModelagemLais.Apgar5Crianca" FromRole="Crianca" ToRole="Apgar5" />
           <Property Name="IdApgar1" Type="Int32" Nullable="false" />
-          <Property Name="IdApgar5" Type="Int32" Nullable="false" />
+          <Property Name="Apgar5Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Apgar5" Relationship="ModelagemLais.CriancaApgar5" FromRole="Crianca" ToRole="Apgar5" />
+          <NavigationProperty Name="Apgar1" Relationship="ModelagemLais.CriancaApgar1" FromRole="Crianca" ToRole="Apgar1" />
         </EntityType>
         <EntityType Name="Mae">
           <Key>
@@ -187,8 +186,8 @@
           <Property Name="Reflexos" Type="Int32" Nullable="false" />
           <Property Name="CorDaPele" Type="String" Nullable="false" />
           <NavigationProperty Name="Medico" Relationship="ModelagemLais.MedicoApgar1" FromRole="Apgar1" ToRole="Medico" />
-          <NavigationProperty Name="Crianca" Relationship="ModelagemLais.Apgar1Crianca" FromRole="Apgar1" ToRole="Crianca" />
           <Property Name="IdMedico" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Crianca" Relationship="ModelagemLais.CriancaApgar1" FromRole="Apgar1" ToRole="Crianca" />
         </EntityType>
         <EntityType Name="Apgar5">
           <Key>
@@ -201,8 +200,8 @@
           <Property Name="Reflexos" Type="Int32" Nullable="false" />
           <Property Name="CorDaPele" Type="String" Nullable="false" />
           <NavigationProperty Name="Medico" Relationship="ModelagemLais.MedicoApgar5" FromRole="Apgar5" ToRole="Medico" />
-          <NavigationProperty Name="Crianca" Relationship="ModelagemLais.Apgar5Crianca" FromRole="Apgar5" ToRole="Crianca" />
           <Property Name="IdMedico" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Crianca" Relationship="ModelagemLais.CriancaApgar5" FromRole="Apgar5" ToRole="Crianca" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -340,30 +339,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Apgar1Crianca">
-          <End Type="ModelagemLais.Apgar1" Role="Apgar1" Multiplicity="1" />
-          <End Type="ModelagemLais.Crianca" Role="Crianca" Multiplicity="1" />
-          <ReferentialConstraint>
-            <Principal Role="Apgar1">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Crianca">
-              <PropertyRef Name="IdApgar1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Apgar5Crianca">
-          <End Type="ModelagemLais.Apgar5" Role="Apgar5" Multiplicity="1" />
-          <End Type="ModelagemLais.Crianca" Role="Crianca" Multiplicity="1" />
-          <ReferentialConstraint>
-            <Principal Role="Apgar5">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Crianca">
-              <PropertyRef Name="IdApgar5" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="MaeConsultaPreNatalConsultaPreNatal">
           <End Type="ModelagemLais.MaeConsultaPreNatal" Role="MaeConsultaPreNatal" Multiplicity="*" />
           <End Type="ModelagemLais.ConsultaPreNatal" Role="ConsultaPreNatal" Multiplicity="1" />
@@ -387,6 +362,14 @@
               <PropertyRef Name="IdMae" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <Association Name="CriancaApgar5">
+          <End Type="ModelagemLais.Crianca" Role="Crianca" Multiplicity="1" />
+          <End Type="ModelagemLais.Apgar5" Role="Apgar5" Multiplicity="1" />
+        </Association>
+        <Association Name="CriancaApgar1">
+          <End Type="ModelagemLais.Crianca" Role="Crianca" Multiplicity="1" />
+          <End Type="ModelagemLais.Apgar1" Role="Apgar1" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>

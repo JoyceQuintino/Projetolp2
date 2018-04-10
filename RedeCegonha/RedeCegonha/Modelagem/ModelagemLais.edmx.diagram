@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="89a7dea67fbb49628ed4722588fd633b" Name="Diagram1" >
+      <Diagram DiagramId="89a7dea67fbb49628ed4722588fd633b" Name="Diagram1" ZoomLevel="114" >
         <EntityTypeShape EntityType="ModelagemLais.Crianca" Width="1.5" PointX="0.5" PointY="1.75" IsExpanded="false" />
         <EntityTypeShape EntityType="ModelagemLais.Mae" Width="1.5" PointX="3.875" PointY="1.5" IsExpanded="false" />
         <AssociationConnector Association="ModelagemLais.MaeCrianca" />
@@ -12,8 +12,8 @@
         <AssociationConnector Association="ModelagemLais.MaeParto" />
         <EntityTypeShape EntityType="ModelagemLais.MaeConsultaPreNatal" Width="1.5" PointX="4" PointY="0.5" IsExpanded="false" />
         <EntityTypeShape EntityType="ModelagemLais.Medico" Width="1.5" PointX="5.5" PointY="4.125" IsExpanded="false" />
-        <EntityTypeShape EntityType="ModelagemLais.Apgar1" Width="1.5" PointX="2.5" PointY="3.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="ModelagemLais.Apgar5" Width="1.5" PointX="0.625" PointY="4.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="ModelagemLais.Apgar1" Width="1.5" PointX="3" PointY="3.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="ModelagemLais.Apgar5" Width="1.5" PointX="0.5" PointY="3.625" IsExpanded="false" />
         <EntityTypeShape EntityType="ModelagemLais.Usuario" Width="1.5" PointX="8.5" PointY="2.75" IsExpanded="false" />
         <EntityTypeShape EntityType="ModelagemLais.ConsultaPreNatal" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="false" />
         <EntityTypeShape EntityType="ModelagemLais.ExamesRecemNascido" Width="1.5" PointX="3.875" PointY="2.375" IsExpanded="false" />
@@ -26,12 +26,10 @@
         <AssociationConnector Association="ModelagemLais.UsuarioMedico" />
         <AssociationConnector Association="ModelagemLais.MedicoApgar1" />
         <AssociationConnector Association="ModelagemLais.MedicoApgar5" />
-        <AssociationConnector Association="ModelagemLais.Apgar1Crianca" ManuallyRouted="false" >
-        </AssociationConnector>
-        <AssociationConnector Association="ModelagemLais.Apgar5Crianca" ManuallyRouted="false" >
-        </AssociationConnector>
         <AssociationConnector Association="ModelagemLais.MaeConsultaPreNatalConsultaPreNatal" />
         <AssociationConnector Association="ModelagemLais.MaeMaeConsultaPreNatal" />
+        <AssociationConnector Association="ModelagemLais.CriancaApgar5" />
+        <AssociationConnector Association="ModelagemLais.CriancaApgar1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

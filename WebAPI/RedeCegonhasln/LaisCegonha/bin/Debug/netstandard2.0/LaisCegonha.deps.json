@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "LaisCegonha/1.0.0": {
+      "laiscegonha/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "2.0.1",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.1",
@@ -18,7 +18,7 @@
           "Pomelo.EntityFrameworkCore.MySql": "2.0.1"
         },
         "runtime": {
-          "LaisCegonha.dll": {}
+          "laiscegonha.dll": {}
         }
       },
       "Microsoft.CSharp/4.4.0": {
@@ -1188,7 +1188,7 @@
     }
   },
   "libraries": {
-    "LaisCegonha/1.0.0": {
+    "laiscegonha/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

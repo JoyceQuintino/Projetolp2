@@ -1,0 +1,16 @@
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\bin\Debug\netcoreapp2.0\api.deps.json
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\bin\Debug\netcoreapp2.0\api.runtimeconfig.json
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\bin\Debug\netcoreapp2.0\api.runtimeconfig.dev.json
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\bin\Debug\netcoreapp2.0\api.dll
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\bin\Debug\netcoreapp2.0\api.pdb
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\bin\Debug\netcoreapp2.0\DataIA.dll
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\bin\Debug\netcoreapp2.0\laiscegonha.dll
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\bin\Debug\netcoreapp2.0\DataIA.pdb
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\bin\Debug\netcoreapp2.0\laiscegonha.pdb
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\obj\Debug\netcoreapp2.0\api.csprojResolveAssemblyReference.cache
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\obj\Debug\netcoreapp2.0\api.csproj.CoreCompileInputs.cache
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\obj\Debug\netcoreapp2.0\api.AssemblyInfoInputs.cache
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\obj\Debug\netcoreapp2.0\api.AssemblyInfo.cs
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\obj\Debug\netcoreapp2.0\api.csproj.CopyComplete
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\obj\Debug\netcoreapp2.0\api.dll
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\api\obj\Debug\netcoreapp2.0\api.pdb

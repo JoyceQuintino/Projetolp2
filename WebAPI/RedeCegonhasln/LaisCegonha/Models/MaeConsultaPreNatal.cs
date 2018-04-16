@@ -9,7 +9,6 @@ namespace laiscegonha.Models
         public int Id { get; set; }
         public int IdMae { get; set; }
         public int IdConsultaPreNatal { get; set; }
-        public int ConsultaPreNatalId { get; set; }
 
         public virtual ConsultaPreNatal ConsultaPreNatal { get; set; }
         public virtual Mae Mae { get; set; }

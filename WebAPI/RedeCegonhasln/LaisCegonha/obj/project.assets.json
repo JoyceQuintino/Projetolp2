@@ -6105,11 +6105,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bolsista\\Documents\\Joyce\\Projetolp2\\WebAPI\\RedeCegonhasln\\LaisCegonha\\LaisCegonha.csproj",
-      "projectName": "LaisCegonha",
-      "projectPath": "C:\\Users\\bolsista\\Documents\\Joyce\\Projetolp2\\WebAPI\\RedeCegonhasln\\LaisCegonha\\LaisCegonha.csproj",
+      "projectUniqueName": "C:\\Users\\bolsista\\Documents\\Joyce\\Projetolp2\\WebAPI\\RedeCegonhasln\\laiscegonha\\laiscegonha.csproj",
+      "projectName": "laiscegonha",
+      "projectPath": "C:\\Users\\bolsista\\Documents\\Joyce\\Projetolp2\\WebAPI\\RedeCegonhasln\\laiscegonha\\laiscegonha.csproj",
       "packagesPath": "C:\\Users\\bolsista\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bolsista\\Documents\\Joyce\\Projetolp2\\WebAPI\\RedeCegonhasln\\LaisCegonha\\obj\\",
+      "outputPath": "C:\\Users\\bolsista\\Documents\\Joyce\\Projetolp2\\WebAPI\\RedeCegonhasln\\laiscegonha\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

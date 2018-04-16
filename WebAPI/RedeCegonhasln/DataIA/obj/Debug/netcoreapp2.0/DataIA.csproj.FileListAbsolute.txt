@@ -1,0 +1,9 @@
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\DataIA\bin\Debug\netcoreapp2.0\DataIA.deps.json
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\DataIA\bin\Debug\netcoreapp2.0\DataIA.dll
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\DataIA\bin\Debug\netcoreapp2.0\DataIA.pdb
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\DataIA\obj\Debug\netcoreapp2.0\DataIA.csprojResolveAssemblyReference.cache
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\DataIA\obj\Debug\netcoreapp2.0\DataIA.csproj.CoreCompileInputs.cache
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\DataIA\obj\Debug\netcoreapp2.0\DataIA.AssemblyInfoInputs.cache
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\DataIA\obj\Debug\netcoreapp2.0\DataIA.AssemblyInfo.cs
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\DataIA\obj\Debug\netcoreapp2.0\DataIA.dll
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\DataIA\obj\Debug\netcoreapp2.0\DataIA.pdb

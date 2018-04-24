@@ -3,42 +3,45 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using laiscegonha.Context;
+using laiscegonha.Models;
 
 namespace laiscegonha.Repositories
 {
-    public class RepositoryBase<T> where T : class
+    public class RepositoryBase<T> : IRepositoryBase<T> where T : class, IEntidade
     {
         private readonly LaisContext _context;
+
         public RepositoryBase(LaisContext context)
         {
             this._context = context;
         }
-        public virtual T GetById(int id)
-        {
-            return _context.Set<T>().Find(id);
-        }
-        public virtual IQueryable<T> GetAll()
-        {
-            return _context.Set<T>();
-        }
-        public virtual T Create(T entity)
+        public virtual T CreateT(T entity)
         {
             _context.Set<T>().Add(entity);
             _context.SaveChanges();
             return entity;
         }
-        public virtual void Delete(int id)
+
+        public virtual T Find(int id)
         {
-            var entity = GetById(id);
-            _context.Set<T>().Remove(entity);
+            return _context.Set<T>().FirstOrDefault(c => c.Id == id);
+        }
+
+        public virtual IEnumerable<T> GetAll()
+        {
+            return _context.Set<T>().ToList();
+        }
+
+        public virtual void Remove(int id)
+        {
+            var exist = _context.Set<T>().First(c => c.Id == id);
+            _context.Set<T>().Remove(exist);
             _context.SaveChanges();
         }
-        public virtual void Update(T entity, int id)
-        {
-            var exist = _context.Set<T>().Find(id);
-            _context.Entry(exist).CurrentValues.SetValues(entity);
-            _context.SaveChanges();
 
+        public virtual void Update(T entity)
+        {
+            _context.Set<T>().Update(entity);
         }
     }
 }

@@ -5,26 +5,28 @@ using System.Linq;
 using System.Threading.Tasks;
 using laiscegonha.Context;
 using laiscegonha.Repositories;
+using laiscegonha.Models;
 
 namespace api.Controllers
 {
     [Route("api/[controller]/")]
-    public abstract class BaseController<T> : Controller where T : class
+    public abstract class BaseController<T> : Controller where T : class, IEntidade
     {
         public RepositoryBase<T> _repository;
+
         public BaseController(LaisContext context)
         {
             _repository = new RepositoryBase<T>(context);
         }
         [HttpGet]
-        public virtual IQueryable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
             return _repository.GetAll();
         }
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            var entity = _repository.GetById(id);
+            var entity = _repository.Find(id);
             if (entity == null)
             {
                 return NotFound();
@@ -36,13 +38,13 @@ namespace api.Controllers
         {
             if (entity == null)
             {
-                return BadRequest("Objeto não pode ser null");
+                return BadRequest("Esse objeto não pode ser nulo");
             }
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            return Ok(_repository.Create(entity));
+            return Ok(_repository.CreateT(entity));
 
         }
         [HttpPut("{id}")]
@@ -52,18 +54,18 @@ namespace api.Controllers
             {
                 return BadRequest();
             }
-            _repository.Update(entity, id);
+            _repository.Update(entity);
             return NoContent();
         }
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var entity = _repository.GetById(id);
+            var entity = _repository.Find(id);
             if (entity == null)
             {
                 return NotFound();
             }
-            _repository.Delete(id);
+            _repository.Remove(id);
             return Ok();
         }
 

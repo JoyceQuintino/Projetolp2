@@ -1,0 +1,9 @@
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\LaisCegonha\bin\Debug\netcoreapp2.0\LaisCegonha.deps.json
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\LaisCegonha\bin\Debug\netcoreapp2.0\LaisCegonha.dll
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\LaisCegonha\bin\Debug\netcoreapp2.0\LaisCegonha.pdb
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\LaisCegonha\obj\Debug\netcoreapp2.0\LaisCegonha.csprojResolveAssemblyReference.cache
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\LaisCegonha\obj\Debug\netcoreapp2.0\LaisCegonha.csproj.CoreCompileInputs.cache
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\LaisCegonha\obj\Debug\netcoreapp2.0\LaisCegonha.AssemblyInfoInputs.cache
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\LaisCegonha\obj\Debug\netcoreapp2.0\LaisCegonha.AssemblyInfo.cs
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\LaisCegonha\obj\Debug\netcoreapp2.0\LaisCegonha.dll
+C:\Users\bolsista\Documents\Joyce\Projetolp2\WebAPI\RedeCegonhasln\LaisCegonha\obj\Debug\netcoreapp2.0\LaisCegonha.pdb

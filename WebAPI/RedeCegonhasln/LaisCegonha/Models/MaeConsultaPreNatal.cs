@@ -4,7 +4,7 @@ using System.Text;
 
 namespace laiscegonha.Models
 {
-    public partial class MaeConsultaPreNatal
+    public partial class MaeConsultaPreNatal : IEntidade
     {
         public int Id { get; set; }
         public int IdMae { get; set; }

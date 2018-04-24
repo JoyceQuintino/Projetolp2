@@ -4,13 +4,8 @@ using System.Text;
 
 namespace laiscegonha.Models
 {
-    public partial class ConsultaPreNatal
+    public partial class ConsultaPreNatal : IEntidade
     {
-        public ConsultaPreNatal()
-        {
-            this.MaeConsultaPreNatal = new HashSet<MaeConsultaPreNatal>();
-        }
-
         public int Id { get; set; }
         public int NumeroDeConsultas { get; set; }
         public string EstadoNutricional { get; set; }

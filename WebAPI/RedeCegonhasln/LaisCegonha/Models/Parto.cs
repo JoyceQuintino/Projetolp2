@@ -4,7 +4,7 @@ using System.Text;
 
 namespace laiscegonha.Models
 {
-    public partial class Parto
+    public partial class Parto : IEntidade
     {
         public int Id { get; set; }
         public string LocalNasci { get; set; }

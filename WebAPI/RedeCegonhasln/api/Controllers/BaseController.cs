@@ -9,7 +9,7 @@ using laiscegonha.Models;
 
 namespace api.Controllers
 {
-    [Route("api/[controller]/")]
+    [Route("lais/[controller]/")]
     public abstract class BaseController<T> : Controller where T : class, IEntidade
     {
         public RepositoryBase<T> _repository;

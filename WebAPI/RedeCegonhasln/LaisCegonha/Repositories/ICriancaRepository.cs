@@ -7,5 +7,6 @@ namespace laiscegonha.Repositories
 {
     interface ICriancaRepository : IRepositoryBase <Crianca>
     {
+
     }
 }
